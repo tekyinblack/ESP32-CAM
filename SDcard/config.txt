@@ -1,0 +1,7 @@
+Robot_1
+STA
+default_SSid
+default_PSWD
+basic.html
+12345
+12346

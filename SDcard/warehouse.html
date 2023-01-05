@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Warehouse Robot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body { font-family: Arial; text-align: center; margin:0px auto; padding-top: 30px;}
+      table { margin-left: auto; margin-right: auto; }
+      td { padding: 8 px; }
+      .button {
+        background-color: #2f4468;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 6px 3px;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+      img {  width: auto ;
+        max-width: 100% ;
+        height: auto ; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Warehouse Robot</h1>
+    <img src="" id="photo" >
+    <table>
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('forward');" ontouchstart="toggleCheckbox('forward');">Forward</button></td></tr>
+      <tr><td align="center"><button class="button" onmousedown="toggleCheckbox('left');" ontouchstart="toggleCheckbox('left');">Left</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('stop');" ontouchstart="toggleCheckbox('stop');">Stop</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('right');" ontouchstart="toggleCheckbox('right');">Right</button></td></tr>
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('backward');" ontouchstart="toggleCheckbox('backward');">Backward</button></td></tr>  
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('CameraLeft');" ontouchstart="toggleCheckbox('CameraLeft');">Camera Left</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('CameraCentre');" ontouchstart="toggleCheckbox('CameraCentre');">Camera Centre</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('CameraRight');" ontouchstart="toggleCheckbox('CameraRight');">Camera Right</button></td></tr>
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('CameraUp');" ontouchstart="toggleCheckbox('CameraUp');">Camera Up</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('CameraLevel');" ontouchstart="toggleCheckbox('CameraLevel');">Camera Level</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('CameraDown');" ontouchstart="toggleCheckbox('CameraDown');">Camera Down</button></td></tr> 
+      <tr><td colspan="2" align="center"><button class="button" onmousedown="toggleCheckbox('GripperClose');" ontouchstart="toggleCheckbox('GripperClose');">Gripper Close</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('GripperOpen');" ontouchstart="toggleCheckbox('GripperOpen');">Gripper Open</button></td></tr>
+      <tr><td colspan="2" align="center"><button class="button" onmousedown="toggleCheckbox('GripperRaise');" ontouchstart="toggleCheckbox('GripperRaise');">Gripper Raise</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('GripperLower');" ontouchstart="toggleCheckbox('GripperLower');">Gripper Lower</button></td></tr>                                
+    </table>
+   <script>
+   function toggleCheckbox(x) {
+     var xhr = new XMLHttpRequest();
+     xhr.open("GET", "/action?go=" + x, true);
+     xhr.send();
+   }
+   window.onload = document.getElementById("photo").src = window.location.protocol + "//" + window.location.hostname + ":81/stream";
+  </script>
+  </body>
+</html>
